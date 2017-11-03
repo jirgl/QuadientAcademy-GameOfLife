@@ -15,7 +15,7 @@ export class World {
     }
 
     createNextGeneration(): void {
-        const nextGenerationAliveCell = [];
+        const nextGenerationAliveCell: ICell[] = [];
         this.aliveCells.forEach((aliveCell) => {
             const numberOfAliveNeighbours = this.board.getNeighbours(aliveCell.position, true).length;
             if (numberOfAliveNeighbours >= 2 && numberOfAliveNeighbours <= 3)

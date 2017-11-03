@@ -20,7 +20,12 @@ export class Game {
         const size = GridCount * GridSize;
         const gameDiv: HTMLElement = document.createElement('div');
         gameDiv.id = gameId;
-        gameDiv.style.cssText = 'position:relative;margin:20px;width:' + size + 'px;height:' + size + 'px';
+        Object.assign(gameDiv.style, {
+            position: 'relative',
+            margin: '20px',
+            width: size + 'px',
+            height: size + 'px'
+        });
 
         document.body.appendChild(gameDiv);
         drawGame(gameId, this.world.getAliveCells());

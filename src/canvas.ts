@@ -9,11 +9,14 @@ export function drawGame(parentDivId: string, aliveCells: ICell[]): void {
     for (let x = 0; x < GridCount; x++) {
         for (let y = 0; y < GridCount; y++) {
             const cellDiv: HTMLElement = document.createElement('div');
-            const left = x * GridSize;
-            const top = y * GridSize;
-            const background = isAlive(x, y, aliveCells) ? 'black' : 'gray';
-            cellDiv.style.cssText = 'position:absolute;left:' + left + 'px;top:' + top +
-                'px;width:' + GridSize + 'px;height:' + GridSize + 'px;background:' + background;
+            Object.assign(cellDiv.style, {
+                position: 'absolute',
+                left: x * GridSize + 'px',
+                top: y * GridSize + 'px',
+                width: GridSize + 'px',
+                height: GridSize + 'px',
+                background: isAlive(x, y, aliveCells) ? 'black' : 'gray'
+            });
 
             gameElement.appendChild(cellDiv);
         }

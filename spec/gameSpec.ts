@@ -40,7 +40,6 @@ describe('Game', () => {
             const updateSpy = spyOn(game, 'update');
             jasmine.clock().tick(2500);
             expect(updateSpy).toHaveBeenCalledTimes(2);
-            jasmine.clock().uninstall();
         });
 
     });
